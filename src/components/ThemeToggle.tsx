@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
 export default function ThemeToggle() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const getSystemTheme = () => {
     if (typeof window !== "undefined" && window.matchMedia) {
       return window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -49,6 +53,7 @@ export default function ThemeToggle() {
     };
   }, []);
 
+  if (!mounted) return null;
   return (
     <button
       aria-label="Toggle theme"
