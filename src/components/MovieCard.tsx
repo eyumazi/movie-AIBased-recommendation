@@ -69,13 +69,12 @@ export function MovieCard({ movie, showRemoveButton = false }: MovieCardProps) {
                   <Film className="w-12 h-12 text-muted-foreground" />
                 </div>
               )}
-              {/* Dark overlay on hover */}
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
-                {/* Centered IMDb rating on hover */}
+              {/* Dark overlay on hover (non-interactive) */}
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center pointer-events-none">
                 {movie.imdbRating && movie.imdbRating !== "N/A" && (
                   <div className="flex flex-col items-center justify-center">
                     <span className="text-5xl font-extrabold text-amber-400 drop-shadow-lg flex items-center gap-2">
-                      <Star className="w-10 h-10 mr-2 text-amber-400" />
+                      <Star className="w-10 h-10 text-amber-400" />
                       {movie.imdbRating}
                     </span>
                     <span className="text-base text-white font-semibold mt-2">
@@ -89,7 +88,7 @@ export function MovieCard({ movie, showRemoveButton = false }: MovieCardProps) {
               <Button
                 variant="destructive"
                 size="icon"
-                className="absolute top-2 right-2 rounded-full h-9 w-9"
+                className="absolute top-2 right-2 rounded-full h-9 w-9 z-20"
                 onClick={handleRemoveClick}
                 aria-label="Remove from watchlist"
               >
@@ -99,7 +98,7 @@ export function MovieCard({ movie, showRemoveButton = false }: MovieCardProps) {
               <Button
                 variant={onList ? "secondary" : "default"}
                 size="icon"
-                className="absolute top-2 right-2 rounded-full h-9 w-9 bg-black/50 backdrop-blur-sm hover:bg-black/70 border-none text-white"
+                className="absolute top-2 right-2 rounded-full h-9 w-9 bg-black/50 backdrop-blur-sm hover:bg-black/70 border-none text-white z-20"
                 onClick={handleAddClick}
                 aria-label={onList ? "On watchlist" : "Add to watchlist"}
                 disabled={onList}
