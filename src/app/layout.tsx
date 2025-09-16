@@ -7,7 +7,7 @@ import { Analytics } from "@/components/Analytics";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "CineList - Your Movie Watchlist",
+  title: "MovieBoard - Your Movie Watchlist",
   description: "Search for movies and build your personal watchlist.",
 };
 

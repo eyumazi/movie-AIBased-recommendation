@@ -1,4 +1,4 @@
-# **App Name**: CineList
+# **App Name**: MovieBoard
 
 ## Core Features:
 

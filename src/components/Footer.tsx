@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
         <div className="text-center md:text-left">
           <p className="font-medium">
-            &copy; {year} CineList. All rights reserved.
+            &copy; {year} MovieBoard. All rights reserved.
           </p>
           <p className="text-muted-foreground mt-1">
             Built by <span className="font-semibold">Eyuel M, Gedlie</span>.
