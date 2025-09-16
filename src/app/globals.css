@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+html {
+  transition: background-color 0.4s, color 0.4s;
 }
 
 @layer base {

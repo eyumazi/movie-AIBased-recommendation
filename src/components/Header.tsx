@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Film, Sparkles, Home, Wand2 } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 import { useWatchlist } from "@/hooks/useWatchlist";
 
@@ -33,24 +34,27 @@ export default function Header() {
             <Film className="w-6 h-6" />
             <span>MovieBoard</span>
           </Link>
-          <nav className="flex items-center gap-4 text-sm font-medium">
-            {navItems.map(
-              (item) =>
-                item.show !== false && (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={cn(
-                      "flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground",
-                      pathname === item.href && "text-foreground"
-                    )}
-                  >
-                    {item.icon && <item.icon className="w-4 h-4" />}
-                    {item.label}
-                  </Link>
-                )
-            )}
-          </nav>
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <nav className="flex items-center gap-4 text-sm font-medium">
+              {navItems.map(
+                (item) =>
+                  item.show !== false && (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground",
+                        pathname === item.href && "text-foreground"
+                      )}
+                    >
+                      {item.icon && <item.icon className="w-4 h-4" />}
+                      {item.label}
+                    </Link>
+                  )
+              )}
+            </nav>
+          </div>
         </div>
       </div>
     </header>
