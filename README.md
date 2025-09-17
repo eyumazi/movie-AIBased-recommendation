@@ -1,80 +1,84 @@
-This project is a movie recommendation web application built with Next.js, leveraging AI for personalized recommendations. Users can create a watchlist, and the AI will suggest movies based on their preferences.
+# MovieBoard
 
-## Features:
+MovieBoard is an AI-powered movie exploration and watchlist web app. It helps users discover, search, and organize movies, get personalized recommendations, and enjoy a beautiful, responsive interface with dark/light mode support.
 
-- **User Watchlist:** Users can add and remove movies from their personal watchlist.
-- **AI-Powered Recommendations:** Get personalized movie recommendations based on the movies in your watchlist.
-- **Mood Search:** Find movies based on your current mood or desired genre.
-- **Movie Details:** View detailed information about each movie, including title, year, IMDb ID, type, and poster.
-- **Intuitive UI:** A clean and modern user interface designed for a seamless browsing experience.
+## Problem Statement
 
-## Getting Started:
+Finding great movies to watch can be overwhelming due to the sheer volume of options and lack of personalized discovery tools. MovieBoard solves this by combining a modern UI, AI-driven recommendations, and a personal watchlist, making movie discovery fun and efficient.
 
-1. **Clone the repository:**
+## Features
 
-   ```bash
-   git clone <repository_url>
-   ```
+- 🔍 **Search**: Instantly search for movies by title, genre, or mood.
+- 🌟 **AI Recommendations**: Get smart, context-aware movie suggestions powered by Google Gemini AI.
+- 🎭 **Mood-Based Discovery**: Find movies that match your current mood.
+- 📝 **Personal Watchlist**: Add, remove, and manage your own movie watchlist.
+- 🌓 **Dark/Light Mode**: Toggle between dark and light themes with smooth transitions.
+- 📱 **Responsive Design**: Works beautifully on desktop and mobile.
 
-2. **Install dependencies:**
+## Tech Stack
 
-   ```bash
-   npm install
-   ```
+- **Next.js 14** (App Router, SSR/CSR)
+- **React 18**
+- **TypeScript**
+- **Tailwind CSS** (utility-first styling)
+- **Lucide React** (icon set)
+- **Google Gemini AI** (for recommendations)
+- **OMDb API** (movie data)
 
-3. **Set up environment variables:**
+## Implementation Overview
 
-   Create a `.env.local` file in the root directory and add your OMDb API key:
+- **Frontend**: Built with Next.js and React, using the App Router for routing and server/client components for performance.
+- **Styling**: Tailwind CSS for rapid, consistent, and responsive UI development.
+- **State Management**: React Context for the watchlist, with localStorage persistence.
+- **AI Integration**: Calls Google Gemini AI via a secure API route, using an environment variable for the API key.
+- **Movie Data**: Fetches movie details from the OMDb API.
+- **Theme Toggle**: Uses a custom React component to switch between dark and light modes, respecting system preferences.
 
-   ```
-   NEXT_PUBLIC_OMDB_API_KEY=your_omdb_api_key
-   ```
+## Getting Started
 
-4. **Run the development server:**
+### 1. Clone the repository
 
-   ```bash
-   npm run dev
-   ```
+```bash
+git clone https://github.com/eyumazi/movie-AIBased-recommendation.git
+cd movie-AIBased-recommendation
+```
 
-   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependencies
 
-## Project Structure:
+```bash
+npm install
+```
 
-- `src/`: Contains the application's source code.
-  - `ai/`: AI-related flows and configurations.
-  - `app/`: Next.js pages and API routes.
-  - `components/`: Reusable UI components.
-  - `contexts/`: React contexts for state management.
-  - `hooks/`: Custom React hooks.
-  - `lib/`: Utility functions and external API integrations.
-  - `types/`: TypeScript type definitions.
+### 3. Set up environment variables
 
-## AI Model Information:
+Create a `.env.local` file in the root directory and add your API keys:
 
-The AI recommendation engine utilizes a custom flow (`recommendMoviesFlow`) defined in `src/ai/flows/recommend-movies-flow.ts`. This flow takes a user's watchlist as input and provides 5 movie recommendations with the following details:
+```env
+OMDB_API_KEY=your_omdb_api_key
+GEMINI_API_KEY=your_google_gemini_api_key
+```
 
-- Movie title
-- Release year
-- IMDb ID
-- A one-sentence explanation for the recommendation, connecting it to the user's watchlist.
+> For production deployments, set these variables in your hosting provider's dashboard as well.
 
-## Styling:
+### 4. Run the development server
 
-The application's styling follows a specific blueprint:
+```bash
+npm run dev
+```
 
-- **Primary color:** Indigo (#4B0082)
-- **Background color:** Very light grey (#F0F0F0)
-- **Accent color:** Violet (#8A2BE2)
-- **Body font:** 'PT Sans'
-- **Headline font:** 'Space Grotesk'
-- **Icons:** Minimalistic icons (e.g., plus for adding, trash can for removing).
+Visit [http://localhost:3000](http://localhost:3000) to view the app.
 
-This blueprint is detailed in `docs/blueprint.md`.
+### 5. Build for production
 
-## Contributing:
+```bash
+npm run build
+npm start
+```
 
-Contributions are welcome! Please follow the standard GitHub fork and pull request workflow.
+## Deployment
 
-## License:
+MovieBoard can be deployed to Vercel, Netlify, or any platform that supports Next.js. Ensure your environment variables are set in the deployment dashboard.
 
-This project is licensed under the [MIT License](LICENSE).
+---
+
+Built by Eyuel M, Gedlie. [GitHub @eyumazi](https://github.com/eyumazi)
